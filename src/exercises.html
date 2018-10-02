@@ -110,7 +110,11 @@ module.exports = {
 		<p> Let's create an React app! </p>
 		<p> <a href="https://reactjs.org/tutorial/tutorial.html#setup-option-2-local-development-environment"> React tutorial </a></p>
 
-<pre><code>const StatelessComponent = ({ children }) =>
+<pre><code>
+import React from "react";
+import ReactDOM from "react-dom";
+
+const StatelessComponent = ({ children }) =>
    <div>
       <p> This is a stateless component </p>
       <div>{ children }</div>
