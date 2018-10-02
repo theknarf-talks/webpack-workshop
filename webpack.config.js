@@ -1,6 +1,10 @@
 const path = require('path');
 
 module.exports = {
+	entry: {
+		'main': './src/index.js',
+		'exercises': './src/exercises.js'
+	},
 	module: {
 		rules: [
 			{ test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },

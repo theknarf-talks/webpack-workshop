@@ -19,7 +19,7 @@ hljs.initHighlightingOnLoad();
 
 [].forEach.call(
 	document.getElementsByClassName('location'),
-	l => l.innerHTML = window.location.origin // + window.location.pathname
+	l => l.innerHTML = window.location.origin + window.location.pathname
 );
 
 // Taken from: https://github.com/hakimel/reveal.js/issues/1694
