@@ -1,5 +1,6 @@
 import 'reveal.js/css/reveal.css';
 import 'reveal.js/lib/css/zenburn.css';
+import '../assets/webpack.png';
 
 const requireAll = r => r.keys().forEach(r);
 

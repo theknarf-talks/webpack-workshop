@@ -30,8 +30,19 @@ module.exports = {
 					},
 					'html-escape-loader'
 				]
+			},
+			{
+				test: /\.png$/,
+				use: [
+					{
+						loader:'file-loader',
+						options: {
+							name: '[name].[ext]',
+							publicPath: '/'
+						}
+					}
+				]
 			}
-
 		]
 	},
 
