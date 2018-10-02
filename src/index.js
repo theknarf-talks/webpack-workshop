@@ -13,6 +13,7 @@ import hljs from 'highlight.js';
 Reveal.configure({
 	slideNumber: true,
 	history: true,
+	controls: true,
 });
 
 Reveal.initialize();
