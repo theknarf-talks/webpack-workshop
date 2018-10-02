@@ -1,11 +1,11 @@
 import 'reveal.js/css/reveal.css';
 import 'reveal.js/lib/css/zenburn.css';
-import '../assets/webpack.png';
 
 const requireAll = r => r.keys().forEach(r);
 
 requireAll( require.context('reveal.js/css/theme/', true, /\.css$/) )
 requireAll( require.context('./', true, /\.(html|css)$/) )
+requireAll( require.context('../assets/', true, /\.png$/) )
 
 import Reveal from 'reveal.js';
 import hljs from 'highlight.js';
