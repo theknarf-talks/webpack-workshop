@@ -11,12 +11,12 @@
 		<a href=".."> Back </a>
 		<h1> Exercises </h1>
 
-		<h2> Exercise 1 - Setting up webpack and Babel </h2>
+		<h2> Exercise 1 - Setting up Webpack </h2>
 
 		<h3> Step 1 - Create a new empty folder for the project </h3>
 
-<pre><code>mkdir react-exercises
-cd react-exercises
+<pre><code>mkdir webpack-exercises
+cd webpack-exercises
 git init
 npm init
 </code></pre>
@@ -34,7 +34,7 @@ npm init
 
 		<p>
 			By default webpack tries to parse the file <mark> ./src/index.js </mark>.
-			So start of by creating an empty folder and then a file called <mark> index.js </mark>.
+			So start of by creating an empty src-folder and then add a file called <mark> index.js </mark>.
 		</p>
 
 <pre><code>mkdir src
@@ -65,71 +65,7 @@ module.exports = {
 
 		<p> When you rebuild the project next time you should get two files out. One JS file and one automatically gennerated HTML file. Try opening up the html file in your browser and see how it looks. </p>
 
-		<h3> Step 4 - Setting up babel</h3>
-
-		<p> Instructions taken from <a href="https://babeljs.io/">https://babeljs.io/</a>. Always use the webpage for updated documentation </p>
-
-		<p> Start of by installing babel core and the loader for webpack: </p>
-
-		<pre><code>npm i --save-dev babel-loader @babel/core</code></pre> 
-
-		<p> Then let's update the webpack config: </p>
-
-<pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-module.exports = {
-  module: {
-    rules: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' }
-    ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin()
-  ]
-}
-</code></pre>
-
-		<p> Webpack will now call babel on all files ending with ".js" or ".jsx". But we haven't configured babel to do anything yet. To do so let's install two presets. </p>
-
-<pre><code>npm i --save-dev @babel/preset-env @babel/preset-react</code></pre>
-
-		<p> And then we need to create a file called ".babelrc" to tell babel what presets we installed. </p>
-
-
-<pre><code>{
-  "presets": ["@babel/preset-env", "@babel/preset-react"]
-}
-</code></pre>
-
-		<h4> Optionally setup TypeScript </h4>
-
-		<a href="https://babeljs.io/docs/en/babel-preset-typescript"> TypeScript for </a>
-
-		<h2> Exercises 2 - Setting up React </h2>
-
-		<p> Let's create an React app! </p>
-		<p> <a href="https://reactjs.org/tutorial/tutorial.html#setup-option-2-local-development-environment"> React tutorial </a></p>
-
-		<p> Install "react" and "react-dom" </p>
-
-<pre><code>
-import React from "react";
-import ReactDOM from "react-dom";
-
-const StatelessComponent = ({ children }) =>
-   <div>
-      <p> This is a stateless component </p>
-      <div>{ children }</div>
-   </div>;
-
-const AndAnother = () =>
-   <div>
-      <StatelessComponent> Yo! </StatelessComponent>
-   </div>;
-
-ReactDOM.render(<AndAnother />, document.body); 
-</code></pre>
-	
+		<h2> Exercise 2 - Creating a custom Loader </h2>
 
 		<script src="exercises.js"></script>	
 	</body>

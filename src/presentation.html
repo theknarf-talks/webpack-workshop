@@ -15,19 +15,12 @@
 
 				<section>
 					<section>
-					<h1> React </h1>
-					<h2> introductory course </h2>
+					<h1> Webpack </h1>
+					<h2> Loaders & Plugins </h2>
 					<p> By Frank Lyder Bredland </p>
 					</section>
 					<section>
-						<p>A talk about React</p>
-						<p class="fragment">and the tools around it</p>
-						<ul class="fragment">
-							<li> Babel </li>
-							<li class="fragment"> Webpack </li>
-							<li class="fragment"> Redux </li>
-							<li class="fragment"> And more... </li>
-						</ul>
+						<p>A talk about Webpack</p>
 					</section>
 					<section>
 						<p> You might want to open this presentation on your computer </p>
@@ -52,7 +45,7 @@
 						<h3> Tip for working with Node.js </h3>
 						<p> If you don't want to mess with enviroment variables you can install <a href="https://github.com/zkat/npx">npx</a> </b>
 						<pre><code>npm i -g npx</code></pre>
-						<p> But for MacOS and Linux users I reccomend the first solution </p>
+						<p> But for MacOS and Linux users I recommend the first solution </p>
 					</section>
 					<section>
 						<p> The presentations URL: </p>
@@ -65,93 +58,13 @@
 						<h2> Overview </h2>
 						<ul>
 							<li> Short introduction </li>
-							<li> What is React? </li>
-							<li> JSX &amp; Babel </li>
-							<li> Webpack </li>
+							<li> What is Webpack? </li>
+							<li> How does Loaders work? </li>
 							<li> Exercises </li>
-							<li> Even more slides... </li>
+							<li> What about Plugins? </li>
 						</ul>
 					</section>
-				</section>
-
-				<section>
-					<section>
-						<h2> What is React? </h2>
-						<p class="fragment">React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.</p>
-					</section>
-					<section>
-						<h2> History of React </h2>
-
-						<p class="fragment"> First released on March 2013, 5 years ago. </p>
-						<p class="fragment"> Angular (2010), Vue (2014) </p>
-						<p class="fragment"> React native: summer of 2013 </p>
-					</section>
-					<section data-gif="repeat">
-						<h2> Create React App </h2>
-						<p>
-						<a href="https://github.com/facebook/create-react-app"> Create react app</a> is a quick way of making a new react app </p>
-						<img src="https://camo.githubusercontent.com/29765c4a32f03bd01d44edef1cd674225e3c906b/68747470733a2f2f63646e2e7261776769742e636f6d2f66616365626f6f6b2f6372656174652d72656163742d6170702f323762343261632f73637265656e636173742e737667" />
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h2> JSX &amp; Babel </h2>
-					</section>
-					<section>
-						<h2> JSX </h2>
-						<p> One ingredient of the magic sauce of React </p>   
-<pre class="fragment"><code>import React from 'react';
-import { Link } from 'react-router-dom'
-import logo from 'logo.png';
- 
-const Header = () =>
-   <header>
-      <Link to="/">
-         <img className="logo" src={logo} />
-      </Link>
-      <select>
-         <option value="english">English</option>
-         <option value="norwegian">Norsk (Bokmål)</option>
-      </select>
-   </header>;
-
-export default Header;
-</code></pre>
-					</section>
-					<section>
-						<h2> Babel </h2>
-						<a href="https://babeljs.io"> https://babeljs.io </a>
-						<p> Transpiling modern JavaScript and JSX into plain code. </p>   
-					</section>
-					<section>
-						<p> Babel gets configured with plugins to compile code </p>
-						<p> For React we want two presets: </p>
-						<pre><code>npm i --save-dev @babel/preset-env @babel/preset-react</code></pre>
-					</section>
-					<section>
-						<p> Then we can configure babel by making a ".babelrc" file: </p>
-<pre><code>{
-  "presets": ["@babel/preset-env", "@babel/preset-react"]
-}
-</code></pre>
-					</section>
-					<section>
-						<h2> Babel </h2>
-						<img src="bable.png" />
-					</section>
-					<section>
-						<h2> Babel </h2>
-						<pre><code><div> test </div></code></pre>
-						<p> is turned into </p>
-						<pre><code>React.createElement("div", null, "test");</code></pre>
-					</section>
-					<section>
-						<h2> Isomorphic-jsx </h2>
-						<a href="https://github.com/TheKnarf/isomorphic-jsx"> Source code </a>
-						<p> A JSX-powered templating library for building multi page websites. </p>   
-					</section>
-				</section>
+			</section>
 
 				<section>
 					<section>
@@ -206,93 +119,11 @@ export default Header;
 
 				<section>
 					<section>
-						<h2> Making react apps </h2>
-
-						<p> Two types of React components </p>
-						<ul>
-							<li> Stateless components </li>
-							<li> Components with state </li>
-						</ul>
-					</section>
-					<section>
-						<h2> Stateless components </h2>
-<pre><code>const StatelessComponent = ({ children }) =>
-   <div>
-      <p> This is a stateless component </p>
-      <div>{ children }</div>
-   </div>;
-
-const AndAnother = () =>
-   <div>
-      <StatelessComponent> Yo! </StatelessComponent>
-   </div>;
-
-ReactDOM.render(document.body, <AndAnother />); 
-</code></pre>
-					</section>
-					<section>
-						<h2> Components with state </h2>
-<pre><code>class ShoppingList extends React.Component {
-  render() {
-    return (
-      <div className="shopping-list">
-        <h1>Shopping List for {this.props.name}</h1>
-        <ul>
-          <li>Instagram</li>
-          <li>WhatsApp</li>
-          <li>Oculus</li>
-        </ul>
-      </div>
-    );
-  }
-}
-</code></pre>
-					</section>
-				</section>
-
-
-				<section>
-					<section>
 						<h2> Exercises </h2>
 						<a href="exercises.html"> Exercises </a>
 						<pre class="location"></pre>
 					</section>
 				</section>
-
-				<section>
-					<section>
-						<h2> Redux </h2>
-						<a href="https://redux.js.org"> https://redux.js.org </a>
-					</section>
-					<section>
-						<p> Two ways to share state in React </p>
-						<p class="fragment"> ... and a third way </p>
-					</section>
-					<section>
-						<h2> (1) Props </h2>
-					</section>
-					<section>
-						<h2> (2) Callbacks </h2>
-					</section>
-					<section>
-						<h2> (3) Redux </h2>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h2> React libraries </h2>
-						<p> Some libraries you might use with React </p>
-					</section>
-					<section>
-						<h2> React libraries </h2>
-						<ul>
-							<li><a href="https://github.com/i18next/react-i18next">i18next</a></li>
-							<li><a href="https://reacttraining.com/react-router/core">React router</a></li>
-						</ul>
-					</section>
-				</section>
-
 
 			</div>
 		</div>
