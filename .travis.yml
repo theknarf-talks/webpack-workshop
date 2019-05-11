@@ -7,5 +7,5 @@ script:
   - bash ./build_and_deploy.sh
 env:
   global:
-  - ENCRYPTION_LABEL: "99c0b9fed215"
+  - ENCRYPTION_LABEL: "947a624b62c5"
   - COMMIT_AUTHOR_EMAIL: "travis@travis.com"
