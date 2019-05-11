@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		
+		<title> React </title>
+
+		<link rel="stylesheet" href="reveal.css" />
+		<link rel="stylesheet" href="black.css" />
+		<link rel="stylesheet" href="zenburn.css" />
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<section>
+					<h1> Webpack </h1>
+					<h2> Loaders & Plugins </h2>
+					<p> By Frank Lyder Bredland </p>
+					</section>
+					<section>
+						<p>A talk about Webpack</p>
+					</section>
+					<section>
+						<p> You might want to open this presentation on your computer </p>
+						<p> The presentations URL: </p>
+						<pre class="location"></pre>
+					</section>
+					<section>
+						<h2> Prerequisites </h2>
+						<ul>
+							<li> Your own computer </li>
+							<li> A text editor or IDE </li>
+							<li> Knows how to use the terminal </li>
+							<li> <a href="https://nodejs.org/en/download/">Node.js and npm</a> </li>
+						</ul>
+					</section>
+					<section>
+						<h3> Tip for working with Node.js </h3>
+						<p> Setup the following in your path: </p>
+						<pre><code>export PATH=$PATH:./node_modules/.bin</code></pre>
+					</section>
+					<section>
+						<h3> Tip for working with Node.js </h3>
+						<p> If you don't want to mess with enviroment variables you can install <a href="https://github.com/zkat/npx">npx</a> </b>
+						<pre><code>npm i -g npx</code></pre>
+						<p> But for MacOS and Linux users I recommend the first solution </p>
+					</section>
+					<section>
+						<p> The presentations URL: </p>
+						<pre class="location"></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2> Overview </h2>
+						<ul>
+							<li> Short introduction </li>
+							<li> What is Webpack? </li>
+							<li> How does Loaders work? </li>
+							<li> Exercises </li>
+							<li> What about Plugins? </li>
+						</ul>
+					</section>
+			</section>
+
+				<section>
+					<section>
+						<h2> Webpack </h2>
+						<a href="https://webpack.js.org"> https://webpack.js.org </a>
+						<p> Bundeling it all together </p> 
+					</section>
+					<section>
+						<h2> Webpack </h2>
+						<img src="webpack.png" />						
+					</section>
+					<section>
+						<h2> Setting up Webpack </h2>
+						<p> Installing: </p>
+						<pre><code> npm i --save-dev webpack webpack-cli </code></pre>
+
+						<p> Usage: </p>
+						<pre><code>webpack --mode development</code></pre>
+
+						<p> Webpack assumes that the file <mark>./src/index.js</mark> exists. </p> 
+					</section>
+					<section>
+						<p> Webpack can be configured to handle all kinds of files </p>
+						<ul>
+							<li class="fragment"> HTML </li>
+							<li class="fragment"> CSS and/or SASS </li>
+							<li class="fragment"> Image files </li>
+							<li class="fragment"> Font files </li>
+							<li class="fragment"> And any other files you configure... </li>
+						</ul>
+					</section>
+					<section>
+						<p> How does webpack handle all these kind of files? </p>
+						<p class="fragment"> Loaders! </p>
+					</section>
+					<section>
+						<p> A loader is simply a function that takes some code inn and returns a processed version </p>
+<pre class="fragment"><code>module.exports = source =&gt; {
+   return source
+      .replace(/\&LT;code\&gt;(([\n]|.)+?)\&LT;\/code\&gt;/gi,
+         (matches, g1) =&gt; {
+   const code = g1.replace(/&lt;/g, '&lt;').replace(/&gt;/g, '&gt;');
+   return `&LT;code&gt;${code}&LT;/code&gt;`;
+});
+</code></pre>	
+					</section>
+					<section>
+						<p> One loader you should know about: </p>
+						<pre><code>debug-loader</code></pre>		
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2> Exercises </h2>
+						<a href="exercises.html"> Exercises </a>
+						<pre class="location"></pre>
+					</section>
+				</section>
+
+			</div>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>

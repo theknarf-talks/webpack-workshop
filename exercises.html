@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		
+		<title> React </title>
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="zenburn.css" />
+	</head>
+	<body>
+		<a href=".."> Back </a>
+		<h1> Exercises </h1>
+
+		<h2> Exercise 1 - Setting up Webpack </h2>
+
+		<h3> Step 1 - Create a new empty folder for the project </h3>
+
+<pre><code>mkdir webpack-exercises
+cd webpack-exercises
+git init
+npm init
+</code></pre>
+
+		<p> Go to <a href="http://gitignore.io">http://gitignore.io</a> and create a gitignore file. You need to add "node". </p>
+
+		<p> After creating a gitignore file commit the files to your new project </p>
+
+		<h3> Step 2 - Setting up an empty webpack build </h3>
+
+		<p>
+			Webpack is used for bundeling all your source files into a single javascript bundle.
+			That way you wont have to include each one of them manually in the HTML file.
+		</p>
+
+		<p>
+			By default webpack tries to parse the file <mark> ./src/index.js </mark>.
+			So start of by creating an empty src-folder and then add a file called <mark> index.js </mark>.
+		</p>
+
+<pre><code>mkdir src
+touch src/index.js
+echo "console.log('test')" &gt; src/index.js
+npm i --save-dev webpack webpack-cli
+webpack
+</code></pre>
+
+		<p> Webpack should automatically have created a folder called "dist" with the output </p>
+
+		<h3> Step 3 - <a href="https://github.com/jantimon/html-webpack-plugin"> html-webpack-plugin </a></h3>
+
+		<p> html-webpack-plugin can automatically gennerate a html file for you </p>
+
+		<pre><code>npm i --save-dev html-webpack-plugin</code></pre>
+
+		<p> Then lets create a config file for webpack called "webpack.config.js" and add the plugin. </p>
+
+<pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  plugins: [
+    new HtmlWebpackPlugin()
+  ]
+}
+</code></pre>
+
+		<p> When you rebuild the project next time you should get two files out. One JS file and one automatically gennerated HTML file. Try opening up the html file in your browser and see how it looks. </p>
+
+		<h2> Exercise 2 - Creating a custom Loader </h2>
+
+		<script src="exercises.js"></script>	
+	</body>
+</html>
